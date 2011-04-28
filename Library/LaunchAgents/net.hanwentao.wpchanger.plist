@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC -//Apple Computer//DTD PLIST 1.0//EN
+http://www.apple.com/DTDs/PropertyList-1.0.dtd >
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>net.hanwentao.wpchanger</string>
+        <key>Program</key>
+        <string>/Users/hanwentao/projects/wpchanger/wpchanger.py</string>
+        <key>StartInterval</key>
+        <integer>3600</integer>
+        <key>StandardOutPath</key>
+        <string>/Users/hanwentao/projects/wpchanger/log/out.log</string>
+        <key>StandardErrorPath</key>
+        <string>/Users/hanwentao/projects/wpchanger/log/err.log</string>
+    </dict>
+</plist>
