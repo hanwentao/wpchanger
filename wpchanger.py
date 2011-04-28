@@ -43,10 +43,13 @@ def main(argv):
         logging.debug('wallpaper filename "%s"', filename)
         path = os.path.join(WALLPAPER_CACHE, filename)
         if not os.path.exists(path):
+            logging.debug('wallpaper not exists')
             logging.info('reading wallpaper image data')
             data = read_url(url)
             logging.info('writing wallpaper image data')
             write_file(path, data)
+        else:
+            logging.debug('wallpaper exists')
         logging.info('changing wallpaper')
         app('Finder').desktop_picture.set(mactypes.File(path))
         logging.info('all done')
