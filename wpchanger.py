@@ -12,6 +12,10 @@ import re
 import sys
 import urllib
 
+from cStringIO import StringIO
+
+import Image
+
 from appscript import app
 from appscript import mactypes
 
@@ -46,6 +50,10 @@ def main(argv):
             logging.debug('wallpaper not exists')
             logging.info('reading wallpaper image data')
             data = read_url(url)
+            logging.debug('checking wallpaper image data')
+            file_obj = StringIO(data)
+            image = Image.open(file_obj)
+            image.load()
             logging.info('writing wallpaper image data')
             write_file(path, data)
         else:
