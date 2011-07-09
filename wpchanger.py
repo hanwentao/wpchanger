@@ -24,7 +24,8 @@ WALLPAPER_INDEX_URL = WALLPAPER_URL_BASE + '/wallpaper/downloads/random/widescre
 WALLPAPER_CACHE = '/Users/hanwentao/Downloads/wallpapers'
 WALLPAPER_URI_PATTERN = re.compile(r'<a href="(/wallpaper/\w+/\w+\.jpg)">')
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(format='[%(asctime)s] %(levelname)s: %(message)s',
+                    level=logging.DEBUG)
 
 def read_url(url):
     f = urllib.urlopen(url)
