@@ -1,0 +1,5 @@
+WPCHANGER=/home/hanwentao/projects/wpchanger/wpchanger.py
+WPCHANGER_LOG=/home/hanwentao/projects/wpchanger/wpchanger.log
+WPCHANGER_ERR=/home/hanwentao/projects/wpchanger/wpchanger.err
+
+*/10 * * * * $WPCHANGER >>$WPCHANGER_LOG 2>>$WPCHANGER_ERR
