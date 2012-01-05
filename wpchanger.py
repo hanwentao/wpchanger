@@ -8,6 +8,7 @@
 import logging
 import os
 import os.path
+import random
 import re
 import sys
 import urllib
@@ -39,6 +40,7 @@ def write_file(path, data):
     f.close()
 
 def main(argv):
+    success = False
     try:
         logging.info('reading wallpaper index page')
         page = read_url(WALLPAPER_INDEX_URL)
@@ -61,13 +63,19 @@ def main(argv):
             logging.debug('wallpaper exists')
         logging.info('changing wallpaper')
         app('Finder').desktop_picture.set(mactypes.File(path))
+        success = True
         logging.info('all done')
     except IOError:
-        logging.error('network problem')
-        return 1
+        logging.warn('network problem')
     except IndexError:
-        logging.error('wallpaper not found')
-        return 1
+        logging.warn('wallpaper not found')
+    if not success:
+        filenames = os.listdir(WALLPAPER_CACHE)
+        filename = random.choice(filenames)
+        path = os.path.join(WALLPAPER_CACHE, filename)
+        logging.info('changing wallpaper from cache')
+        app('Finder').desktop_picture.set(mactypes.File(path))
+        logging.info('all done')
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))
